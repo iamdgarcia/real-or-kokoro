@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real or Kokoro? 🎭 — train your ear on TTS expressiveness</title>
+<meta name="description" content="10 rounds, 2 takes each: which read is the expressive one? All clips are Kokoro TTS — a listening game for prosody, pauses and pitch contour.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Real or Kokoro? <span class="emoji">🎭</span></h1>
+    <p class="tagline">Two takes per round. <strong>Which one is the expressive read?</strong></p>
+    <p class="honest">Honest label: <em>both</em> takes are Kokoro TTS. One is directed to be expressive,
+    the other is read flat. The game trains your ear on <strong>expressiveness</strong> — the axis TTS
+    quality is actually judged on.</p>
+  </header>
+
+  <section id="game">
+    <div class="dots" id="dots" aria-label="progress"></div>
+    <div class="round-label" id="roundLabel">Round 1 / 10</div>
+
+    <div class="players">
+      <button class="player" id="playA" aria-label="play take A">
+        <span class="big">▶</span><span class="who">Take A</span>
+      </button>
+      <button class="player" id="playB" aria-label="play take B">
+        <span class="big">▶</span><span class="who">Take B</span>
+      </button>
+    </div>
+    <audio id="audio" preload="auto"></audio>
+
+    <div class="guess-row" id="guessRow">
+      <button class="guess" id="guessA">Take A is expressive</button>
+      <button class="guess" id="guessB">Take B is expressive</button>
+    </div>
+
+    <div class="feedback" id="feedback" hidden>
+      <div class="verdict" id="verdict"></div>
+      <div class="hint" id="hint"></div>
+      <button class="next" id="next">Next round →</button>
+    </div>
+  </section>
+
+  <section id="final" hidden>
+    <div class="score-card">
+      <div class="score-big" id="scoreBig"></div>
+      <div class="score-msg" id="scoreMsg"></div>
+      <div class="score-detail" id="scoreDetail"></div>
+      <div class="final-actions">
+        <button id="copyShare">Copy result</button>
+        <button id="restart">Play again</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>All clips generated with <a href="https://github.com/hexgrad/kokoro" rel="noopener">Kokoro-82M</a>
+    (Apache-2.0, © hexgrad &amp; contributors), running locally via kokoro-onnx. No human recordings —
+    this is an expressiveness ear-training game, not a Turing test.</p>
+    <p>Built by <a href="https://huggingface.co/iamdgarcia" rel="noopener">iamdgarcia</a> ·
+    <a href="https://github.com/iamdgarcia/real-or-kokoro" rel="noopener">code on GitHub</a> ·
+    more voice-agent instruments at <a href="https://iamdgarcia.substack.com" rel="noopener">The Learning Curve</a></p>
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
